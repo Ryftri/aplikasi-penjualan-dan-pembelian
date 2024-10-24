@@ -1,0 +1,13 @@
+model BarangMasuk {
+    id BigInt @id @default(autoincrement())
+    jumlah_barang_masuk Int
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    penginput User @relation(fields: [penginputId], references: [id], onDelete: Cascade)
+    penginputId BigInt
+
+    barang Barang   @relation(fields: [barangId], references: [id], onDelete: Cascade)
+    barangId BigInt
+}
